@@ -1,4 +1,4 @@
-// select html elements
+// select DOM elements
 const form = document.getElementById("commentForm");
 const formInput = document.getElementById("commentInputField");
 const commentList = document.getElementById("commentList");
@@ -8,7 +8,7 @@ const newest = document.getElementById("newest");
 const oldest = document.getElementById("oldest");
 
 // handle the form submission logic
-form.addEventListener("submit", function saveCom(event) {
+form.addEventListener("submit", function saveComment(event) {
   event.preventDefault();
   const commentWord = formInput.value;
   const currentTime = new Date();
@@ -34,9 +34,10 @@ form.addEventListener("submit", function saveCom(event) {
 });
 
 // fetch and display comments component
-localComment = localStorage.getItem("comments");
-const arrayComment = localComment ? JSON.parse(localComment) : [];
+
 function fetchDisplay() {
+  localComment = localStorage.getItem("comments");
+  const arrayComment = localComment ? JSON.parse(localComment) : [];
   // looping through fetched array object
   arrayComment.forEach((item, index) => {
     var commentCard = document.createElement("div");
@@ -53,14 +54,17 @@ function fetchDisplay() {
     <p>Posted: ${item.commentTime}</p>
     `;
 
-    // deleting the comments
+    // deleting comment
     commentDel.addEventListener("click", () => {
-      const storedData = JSON.parse(localStorage.getItem("comments"));
-      delete storedData[index];
+      let storedData = JSON.parse(localStorage.getItem("comments"));
+      storedData = storedData.filter(
+        (item, indexSIngle) => index !== indexSIngle
+      );
+
       localStorage.setItem("comments", JSON.stringify(storedData));
     });
 
-    // updating the comment
+    // updating comment
     commentUpd.addEventListener("click", () => {
       formInput.value = item.commentWord;
       buttonBtn.innerHTML = "Update";
@@ -102,21 +106,8 @@ newest.addEventListener("click", () => {
   const storedData = JSON.parse(localStorage.getItem("comments"));
   const reversedArray = Object.entries(storedData).reverse();
   const arrayLen = Object.keys(storedData).length;
+  
 
-  var commentCard = document.createElement("div");
-  var commentDel = document.createElement("button");
-  var commentUpd = document.createElement("button");
-  commentCard.classList.add("com-card");
-  commentDel.classList.add("com-del");
-  commentDel.textContent = "Delete";
-  commentUpd.classList.add("com-upd");
-  commentUpd.textContent = "Update";
-
-  sortedObj = {};
-  for (i = 0; i <= arrayLen; i++) {
-    console.log(array.keys(reversedArray));
-  }
-});
 
 oldest.addEventListener("click", () => {
   window.location.reload();
