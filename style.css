@@ -1,0 +1,106 @@
+body {
+  background-color: rgb(210, 207, 207);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+}
+
+#form-component {
+  margin-top: 20px;
+}
+
+#form-component form {
+  border: 1px solid #ff5722;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ff5722;
+  margin-bottom: 20px;
+}
+
+#form-component input {
+  width: 500px;
+  height: 150px;
+  border: 1px solid #ff5722;
+  border-radius: 8px;
+  padding: 5px;
+  color: teal !important;
+  font-size: 15px;
+}
+
+#form-component form button {
+  padding: 10px;
+  border: 2px solid teal;
+  background-color: teal;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bolder;
+  margin-left: 5px;
+}
+
+#reorder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 20vw;
+  color: #ff5722;
+  font-weight: 800;
+}
+
+#reorder button {
+  padding: 10px;
+  border: 1px solid teal;
+  background-color: teal;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#commentList{
+    margin-bottom: 15px;
+}
+#commentList .com-card {
+  background-color: #ff5722;
+  text-align: left;
+  font-size: 13px;
+  width: 550px;
+  padding: 15px;
+  margin-bottom: 2px;
+  border-radius: 8px;
+  color: rgb(255, 244, 245);
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+#commentList .com-card p {
+  margin-left: 400px;
+  color: wheat;
+  font-weight: bold;
+}
+
+#commentList .com-card .com-del{
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+#commentList .com-card .com-upd {
+    background-color: teal;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid teal;
+    border-radius: 7px;
+    cursor: pointer;
+}
