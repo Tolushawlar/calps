@@ -34,7 +34,6 @@ form.addEventListener("submit", function saveComment(event) {
 });
 
 // fetch and display comments component
-
 function fetchDisplay() {
   localComment = localStorage.getItem("comments");
   const arrayComment = localComment ? JSON.parse(localComment) : [];
@@ -105,10 +104,10 @@ newest.addEventListener("click", () => {
   commentList.innerHTML = "";
   const storedData = JSON.parse(localStorage.getItem("comments"));
   const reversedArray = Object.entries(storedData).reverse();
-  const arrayLen = Object.keys(storedData).length;
-  
-
-
-oldest.addEventListener("click", () => {
-  window.location.reload();
+  const newComment = [];
+  reversedArray.forEach((item, index) => {
+    newComment.push(item[1]);
+  });
+  localStorage.setItem("comments", JSON.stringify(newComment));
+  fetchDisplay();
 });
